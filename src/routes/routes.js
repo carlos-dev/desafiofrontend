@@ -13,7 +13,7 @@ export default class Routes extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'login'}}
+        initialRoute={{id: 'main'}}
         renderScene={(route, navigator) => {
           if (route.id === 'login') {
             return <Login navigator={this.props.navigator} />;
