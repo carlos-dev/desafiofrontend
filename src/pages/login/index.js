@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   View,
   TextInput,
@@ -10,9 +10,17 @@ import {
 
 import logo from '../../assets/img/Logo_telaInicial.png';
 
-const { navigate } = this.props.navigation;
-export default class App extends React.Component {
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.fabPress = this.fabPress.bind(this);
+  }
 
+  fabPress() {
+    this.props.navigator.push({
+      id: 'main',
+    });
+  }
 
   render() {
     return (
@@ -31,10 +39,7 @@ export default class App extends React.Component {
           placeholderTextColor="#273e64"
         />
 
-        <TouchableOpacity
-          style={styles.btn}
-          onPress={navigate('Main')}
-          >
+        <TouchableOpacity style={styles.btn} onPress={this.fabPress}>
           <Text style={styles.textBtn}>ENTRAR</Text>
           <Text style={styles.arrow}>></Text>
         </TouchableOpacity>
@@ -97,3 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 });
+
+Login.navigationOptions = {
+  titie: 'Login',
+};

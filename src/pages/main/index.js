@@ -4,12 +4,14 @@ import {View, Text} from 'react-native';
 
 // import { Container } from './styles';
 
-const main = () => {
-  return (
-    <View>
-      <Text>ok</Text>
-    </View>
-  );
+const Main = () => (
+  <View>
+    <Text>ok</Text>
+  </View>
+);
+
+Main.navigationOptions = {
+  titie: 'Login',
 };
 
-export default main;
+export default Main;

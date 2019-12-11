@@ -1,22 +1,29 @@
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import React, {Component} from 'react';
+import {Navigator} from 'react-native-deprecated-custom-components';
 
 import Login from '../pages/login';
 import Main from '../pages/main';
 
-const Routes = createStackNavigator({
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      header: null,
-    },
-  },
-  Main: {
-    screen: Main,
-    navigationOptions: {
-      headerTitle: null,
-    },
-  },
-});
+// const Navigator = createStackNavigator({
+//   Login: {screen: Login},
+//   Main: {screen: Main},
+// });
 
-export default createAppContainer(Routes);
+export default class Routes extends Component {
+  render() {
+    return (
+      <Navigator
+        initialRoute={{id: 'login'}}
+        renderScene={(route, navigator) => {
+          if (route.id === 'login') {
+            return <Login navigator={this.props.navigator} />;
+          }
+
+          if (route.id === 'main') {
+            return <Main />;
+          }
+        }}
+      />
+    );
+  }
+}
