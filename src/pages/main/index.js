@@ -1,11 +1,10 @@
 import React from 'react';
-
 import {View, Text, Image, StyleSheet, ImageBackground} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import logo from '../../assets/img/Logo_telaInicial.png';
-import buscar from '../../assets/img/buscar.png';
-import config from '../../assets/img/config.png';
+import Navbar from '../../components/navbar';
+
+
 import img_principal_0 from '../../assets/img/Img_principal_0.png';
 import img_principal_1 from '../../assets/img/Img_principal_1.png';
 import img_principal_2 from '../../assets/img/Img_principal_2.png';
@@ -14,16 +13,7 @@ import img_principal_2 from '../../assets/img/Img_principal_2.png';
 
 const Main = () => (
   <View>
-    <View style={styles.menu}>
-      <View>
-        <Image source={logo} style={styles.logo} />
-      </View>
-
-      <View style={styles.options}>
-        <Image source={buscar} style={styles.icon} />
-        <Image source={config} style={styles.icon} />
-      </View>
-    </View>
+    <Navbar />
 
     <View style={styles.mainContent}>
       <View style={styles.section}>
@@ -55,30 +45,6 @@ const Main = () => (
 );
 
 const styles = StyleSheet.create({
-  menu: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 60,
-    backgroundColor: '#fff',
-    paddingHorizontal: 13,
-  },
-
-  logo: {
-    resizeMode: 'contain',
-    width: 140,
-  },
-
-  options: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-
-  icon: {
-    marginHorizontal: 10,
-  },
-
   mainContent: {
     display: 'flex',
   },
