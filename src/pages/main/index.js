@@ -11,9 +11,8 @@ import {
 
 import LinearGradient from 'react-native-linear-gradient';
 
-import logo from '../../assets/img/Logo_telaInicial.png';
-import buscar from '../../assets/img/buscar.png';
-import config from '../../assets/img/config.png';
+import Navbar from '../../components/navbar';
+
 import img_principal_0 from '../../assets/img/Img_principal_0.png';
 import img_principal_1 from '../../assets/img/Img_principal_1.png';
 import img_principal_2 from '../../assets/img/Img_principal_2.png';
@@ -23,16 +22,7 @@ import icone_bt_jogar from '../../assets/img/icone_bt_jogar.png';
 
 const Main = () => (
   <View>
-    <View style={styles.menu}>
-      <View>
-        <Image source={logo} style={styles.logo} />
-      </View>
-
-      <View style={styles.options}>
-        <Image source={buscar} style={styles.icon} />
-        <Image source={config} style={styles.icon} />
-      </View>
-    </View>
+    <Navbar />
 
     <View>
       <View style={styles.section}>
