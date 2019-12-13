@@ -18,7 +18,7 @@ const Play = ({navigation}) => (
         <View style={styles.line} />
       </View>
 
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => navigation.navigate('Quiz')}>
         <Image source={indicador} style={styles.indicador} />
       </TouchableHighlight>
       <Image source={roleta} style={styles.roleta} />
@@ -26,7 +26,7 @@ const Play = ({navigation}) => (
       <TouchableHighlight
         style={styles.btnVoltar}
         onPress={() => navigation.navigate('Game')}>
-        <Image source={bt_voltar} />
+        <Image source={bt_voltar} style={styles.imgVoltar} />
       </TouchableHighlight>
     </View>
   </View>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
 
   indicador: {
-    position: 'absolute',
+    position: 'relative',
     top: -19,
     alignSelf: 'center',
     width: '100%',
@@ -74,13 +74,20 @@ const styles = StyleSheet.create({
   roleta: {
     width: '80%',
     resizeMode: 'contain',
-    zIndex: -1,
+    zIndex: -2,
     alignSelf: 'center',
+    position: 'absolute',
+    top: 60,
   },
 
   btnVoltar: {
     marginLeft: 16,
-    marginTop: -90,
+    marginTop: -150,
+  },
+
+  imgVoltar: {
+    width: 80,
+    resizeMode: 'contain',
   },
 });
 

@@ -43,7 +43,8 @@ export default class Quiz extends Component {
             style={[
               styles.option,
               {backgroundColor: this.state.backgroundColor},
-            ]}>
+            ]}
+            onPress={() => this.changeColor()}>
             <Text style={styles.textOption}>Lorem Ipsum</Text>
           </TouchableHighlight>
 
