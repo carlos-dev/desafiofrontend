@@ -17,7 +17,7 @@ const Navbar = () => (
       <Image source={config} style={styles.icon} />
     </View>
   </View>
-)
+);
 
 const styles = StyleSheet.create({
   menu: {
@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
   },
 
   icon: {
+    width: 20,
+    resizeMode: 'contain',
     marginHorizontal: 10,
   },
 });

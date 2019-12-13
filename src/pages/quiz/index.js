@@ -63,14 +63,6 @@ export default class Quiz extends Component {
             onPress={() => this.changeColor()}>
             <Text style={styles.textOption}>Lorem Ipsum</Text>
           </TouchableHighlight>
-
-          <View style={styles.divider} />
-
-          <TouchableHighlight
-            style={styles.option}
-            onPress={() => this.changeColor()}>
-            <Text style={styles.textOption}>Lorem Ipsum</Text>
-          </TouchableHighlight>
         </View>
       </View>
     );
@@ -114,6 +106,10 @@ const styles = StyleSheet.create({
   },
 
   options: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#fff',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -126,7 +122,6 @@ const styles = StyleSheet.create({
   },
 
   option: {
-    backgroundColor: '#fff',
     width: '100%',
     display: 'flex',
     alignItems: 'center',

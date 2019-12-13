@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableHighlight,
   ImageBackground,
+  Image,
 } from 'react-native';
 
 import Navbar from '../../components/navbar';
@@ -22,20 +23,24 @@ const Game = ({navigation}) => (
         onPress={() => navigation.navigate('Play')}>
         <View style={styles.viewPlay}>
           <ImageBackground source={btn_jogar} style={styles.backgroundGame}>
-            <Text style={styles.textBtn}>Jogar</Text>
+            <Text style={styles.textBackground}>Jogar</Text>
           </ImageBackground>
         </View>
       </TouchableHighlight>
 
       <View style={styles.ranking}>
         <ImageBackground source={btn_ranking} style={styles.backgroundGame}>
-          <Text style={styles.textBtn}>Ranking</Text>
+          <Text style={styles.textBackground}>Ranking</Text>
         </ImageBackground>
       </View>
 
-      <TouchableHighlight style={styles.btnBack}>
-        <Image source={arrow} style={styles.arrow} />
-        <Text style={styles.textBtn}>Voltar</Text>
+      <TouchableHighlight
+        style={styles.btnBack}
+        onPress={() => navigation.navigate('Main')}>
+        <View style={styles.flexBtn}>
+          <Image source={arrow} style={styles.arrow} />
+          <Text style={styles.textBtn}>Voltar</Text>
+        </View>
       </TouchableHighlight>
     </View>
   </View>
@@ -86,11 +91,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     position: 'absolute',
-    bottom: 120,
+    bottom: 55,
     backgroundColor: '#1e314e',
     borderTopLeftRadius: 70,
-    height: 110,
+    height: 100,
     width: '100%',
+  },
+
+  flexBtn: {
+    flexDirection: 'row',
   },
 
   textBtn: {
@@ -104,12 +113,9 @@ const styles = StyleSheet.create({
   },
 
   arrow: {
-    position: 'absolute',
-    left: 35,
-    width: 18,
+    right: 80,
+    width: 20,
     alignSelf: 'center',
-    backgroundColor: '#44635a',
-    height: 40,
     bottom: 0,
   },
 });

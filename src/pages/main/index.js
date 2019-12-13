@@ -9,16 +9,12 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-import LinearGradient from 'react-native-linear-gradient';
-
 import Navbar from '../../components/navbar';
 
 import img_principal_0 from '../../assets/img/Img_principal_0.png';
 import img_principal_1 from '../../assets/img/Img_principal_1.png';
 import img_principal_2 from '../../assets/img/Img_principal_2.png';
 import icone_bt_jogar from '../../assets/img/icone_bt_jogar.png';
-
-// import { Container } from './styles';
 
 const Main = ({navigation}) => (
   <View>
@@ -117,10 +113,11 @@ const styles = StyleSheet.create({
   },
 
   textMain: {
-    width: 140,
-    textAlign: 'right',
+    width: 150,
+    height: 70,
+    lineHeight: 70,
+    textAlign: 'center',
     fontSize: 35,
-    paddingRight: 30,
     backgroundColor: '#fff',
   },
 
@@ -168,14 +165,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 30,
     lineHeight: 90,
-    paddingLeft: 30,
+    paddingLeft: 40,
   },
 
   iconGame: {
     width: 235,
     position: 'absolute',
     resizeMode: 'contain',
-    right: 0,
+    right: -10,
     bottom: -20,
   },
 

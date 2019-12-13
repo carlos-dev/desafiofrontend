@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import logo from '../../assets/img/Logo_telaInicial.png';
+import arrow from '../../assets/img/arrow.png';
 
 const Login = ({navigation}) => (
   <View style={styles.content}>
@@ -30,7 +31,7 @@ const Login = ({navigation}) => (
       style={styles.btn}
       onPress={() => navigation.navigate('Main')}>
       <Text style={styles.textBtn}>ENTRAR</Text>
-      <Text style={styles.arrow}>></Text>
+      <Image source={arrow} style={styles.arrow} />
     </TouchableOpacity>
     <Text style={styles.textPassword}>Esqueceu a senha?</Text>
   </View>
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderBottomLeftRadius: 30,
+    borderBottomLeftRadius: 40,
     backgroundColor: '#f05f3c',
     width: '100%',
     marginTop: 3,
@@ -76,9 +77,11 @@ const styles = StyleSheet.create({
   },
 
   arrow: {
-    textAlign: 'right',
-    color: '#fff',
-    paddingLeft: 30,
+    position: 'absolute',
+    right: 10,
+    resizeMode: 'contain',
+    height: 14,
+    transform: [{rotate: '180deg'}],
   },
 
   textPassword: {
