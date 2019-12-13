@@ -10,44 +10,31 @@ import {
 
 import logo from '../../assets/img/Logo_telaInicial.png';
 
-export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.fabPress = this.fabPress.bind(this);
-  }
+const Login = ({navigation}) => (
+  <View style={styles.content}>
+    <Image source={logo} style={styles.logo} />
 
-  fabPress() {
-    this.props.navigator.push({
-      id: 'main',
-    });
-  }
+    <TextInput
+      placeholder="E-mail"
+      style={styles.input}
+      placeholderTextColor="#273e64"
+    />
 
-  render() {
-    return (
-      <View style={styles.content}>
-        <Image source={logo} style={styles.logo} />
+    <TextInput
+      placeholder="CPF"
+      style={styles.input}
+      placeholderTextColor="#273e64"
+    />
 
-        <TextInput
-          placeholder="E-mail"
-          style={styles.input}
-          placeholderTextColor="#273e64"
-        />
-
-        <TextInput
-          placeholder="CPF"
-          style={styles.input}
-          placeholderTextColor="#273e64"
-        />
-
-        <TouchableOpacity style={styles.btn} onPress={this.fabPress}>
-          <Text style={styles.textBtn}>ENTRAR</Text>
-          <Text style={styles.arrow}>></Text>
-        </TouchableOpacity>
-        <Text style={styles.textPassword}>Esqueceu a senha?</Text>
-      </View>
-    );
-  }
-}
+    <TouchableOpacity
+      style={styles.btn}
+      onPress={() => navigation.navigate('Main')}>
+      <Text style={styles.textBtn}>ENTRAR</Text>
+      <Text style={styles.arrow}>></Text>
+    </TouchableOpacity>
+    <Text style={styles.textPassword}>Esqueceu a senha?</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   content: {
@@ -106,3 +93,5 @@ const styles = StyleSheet.create({
 Login.navigationOptions = {
   titie: 'Login',
 };
+
+export default Login;

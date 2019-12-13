@@ -7,7 +7,7 @@ import roleta from '../../assets/img/roleta.png';
 import indicador from '../../assets/img/indicador_0_roleta.png';
 import bt_voltar from '../../assets/img/bt_voltar.png';
 
-const Play = () => (
+const Play = ({navigation}) => (
   <View style={styles.viewPlay}>
     <Navbar />
 
@@ -23,7 +23,9 @@ const Play = () => (
       </TouchableHighlight>
       <Image source={roleta} style={styles.roleta} />
 
-      <TouchableHighlight style={styles.btnVoltar}>
+      <TouchableHighlight
+        style={styles.btnVoltar}
+        onPress={() => navigation.navigate('Game')}>
         <Image source={bt_voltar} />
       </TouchableHighlight>
     </View>
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
 
   line: {
     width: 30,
-    height: 2,
+    height: 1,
     backgroundColor: '#fff',
   },
 
@@ -78,8 +80,12 @@ const styles = StyleSheet.create({
 
   btnVoltar: {
     marginLeft: 16,
-    marginTop: -40,
+    marginTop: -90,
   },
 });
+
+Play.navigationOptions = {
+  titie: 'Play',
+};
 
 export default Play;

@@ -20,7 +20,7 @@ import icone_bt_jogar from '../../assets/img/icone_bt_jogar.png';
 
 // import { Container } from './styles';
 
-const Main = () => (
+const Main = ({navigation}) => (
   <View>
     <Navbar />
 
@@ -51,7 +51,9 @@ const Main = () => (
         </ImageBackground>
       </View>
 
-      <TouchableHighlight style={styles.btnGame}>
+      <TouchableHighlight
+        style={styles.btnGame}
+        onPress={() => navigation.navigate('Game')}>
         <View style={styles.viewBtnGame}>
           <Text style={styles.textBtn}>Game</Text>
           <Image source={icone_bt_jogar} style={styles.iconGame} />
@@ -179,5 +181,9 @@ const styles = StyleSheet.create({
 
   /* end button game */
 });
+
+Main.navigationOptions = {
+  titie: 'Main',
+};
 
 export default Main;

@@ -1,39 +1,40 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  ImageBackground,
 } from 'react-native';
 
-import Navbar from '../../components/navbar'
-import img_principal_0 from '../../assets/img/Img_principal_0.png';
-import img_principal_1 from '../../assets/img/Img_principal_1.png';
+import Navbar from '../../components/navbar';
 import btn_jogar from '../../assets/img/btn_jogar_gameOrRanking.png';
 import btn_ranking from '../../assets/img/btn_ranking_gameOrRanking.png';
 
-const Game = () => (
+const Game = ({navigation}) => (
   <View>
     <Navbar />
 
     <View style={styles.mainContent}>
-      <View style={styles.play}>
-        <ImageBackground
-          source={btn_jogar}
-          style={styles.backgroundGame}
-        >
-          <Text style={styles.textBtn}>Jogar</Text>
-        </ImageBackground>
-      </View>
-      
+      <TouchableHighlight
+        style={styles.btnPlay}
+        onPress={() => navigation.navigate('Play')}>
+        <View style={styles.viewPlay}>
+          <ImageBackground source={btn_jogar} style={styles.backgroundGame}>
+            <Text style={styles.textBtn}>Jogar</Text>
+          </ImageBackground>
+        </View>
+      </TouchableHighlight>
+
       <View style={styles.ranking}>
-        <ImageBackground
-          source={btn_ranking}
-          style={styles.backgroundGame}
-        >
+        <ImageBackground source={btn_ranking} style={styles.backgroundGame}>
           <Text style={styles.textBtn}>Ranking</Text>
         </ImageBackground>
       </View>
 
-      <TouchableOpacity style={styles.btnBack}>
+      <TouchableHighlight style={styles.btnBack}>
         <Text>Voltar</Text>
-      </TouchableOpacity>
+      </TouchableHighlight>
     </View>
   </View>
 );
@@ -43,8 +44,12 @@ const styles = StyleSheet.create({
     display: 'flex',
   },
 
-  play: {
-    height: '40%',
+  btnPlay: {
+    height: '36%',
+  },
+
+  viewPlay: {
+    height: '100%',
   },
 
   ranking: {
@@ -75,5 +80,9 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
 });
+
+Game.navigationOptions = {
+  titie: 'Game',
+};
 
 export default Game;
