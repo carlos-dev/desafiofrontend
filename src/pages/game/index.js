@@ -2,40 +2,41 @@ import React from 'react';
 import {
   View,
   Text,
-  Image,
   StyleSheet,
-  TouchableOpacity,
+  TouchableHighlight,
   ImageBackground,
 } from 'react-native';
 
 import Navbar from '../../components/navbar';
-import img_principal_0 from '../../assets/img/Img_principal_0.png';
-import img_principal_1 from '../../assets/img/Img_principal_1.png';
 import arrow from '../../assets/img/arrow.png';
+import btn_jogar from '../../assets/img/btn_jogar_gameOrRanking.png';
+import btn_ranking from '../../assets/img/btn_ranking_gameOrRanking.png';
 
-const Game = () => (
+const Game = ({navigation}) => (
   <View>
     <Navbar />
 
     <View style={styles.mainContent}>
-      <View style={styles.play}>
-        <ImageBackground source={img_principal_0} style={styles.backgroundGame}>
-          <Text style={styles.textBackground}>Jogar</Text>
-        </ImageBackground>
-      </View>
+      <TouchableHighlight
+        style={styles.btnPlay}
+        onPress={() => navigation.navigate('Play')}>
+        <View style={styles.viewPlay}>
+          <ImageBackground source={btn_jogar} style={styles.backgroundGame}>
+            <Text style={styles.textBtn}>Jogar</Text>
+          </ImageBackground>
+        </View>
+      </TouchableHighlight>
 
       <View style={styles.ranking}>
-        <ImageBackground source={img_principal_1} style={styles.backgroundGame}>
-          <Text style={[styles.textBackground, styles.textRanking]}>
-            Ranking
-          </Text>
+        <ImageBackground source={btn_ranking} style={styles.backgroundGame}>
+          <Text style={styles.textBtn}>Ranking</Text>
         </ImageBackground>
       </View>
 
-      <TouchableOpacity style={styles.btnBack}>
+      <TouchableHighlight style={styles.btnBack}>
         <Image source={arrow} style={styles.arrow} />
         <Text style={styles.textBtn}>Voltar</Text>
-      </TouchableOpacity>
+      </TouchableHighlight>
     </View>
   </View>
 );
@@ -45,8 +46,12 @@ const styles = StyleSheet.create({
     display: 'flex',
   },
 
-  play: {
-    height: '40%',
+  btnPlay: {
+    height: '36%',
+  },
+
+  viewPlay: {
+    height: '100%',
   },
 
   ranking: {
@@ -59,6 +64,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-end',
+    resizeMode: 'contain',
   },
 
   textBackground: {
@@ -102,7 +108,14 @@ const styles = StyleSheet.create({
     left: 35,
     width: 18,
     alignSelf: 'center',
+    backgroundColor: '#44635a',
+    height: 40,
+    bottom: 0,
   },
 });
+
+Game.navigationOptions = {
+  titie: 'Game',
+};
 
 export default Game;
