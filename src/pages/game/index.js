@@ -5,6 +5,8 @@ import {View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground
 import Navbar from '../../components/navbar'
 import img_principal_0 from '../../assets/img/Img_principal_0.png';
 import img_principal_1 from '../../assets/img/Img_principal_1.png';
+import btn_jogar from '../../assets/img/btn_jogar_gameOrRanking.png';
+import btn_ranking from '../../assets/img/btn_ranking_gameOrRanking.png';
 
 const Game = () => (
   <View>
@@ -13,7 +15,7 @@ const Game = () => (
     <View style={styles.mainContent}>
       <View style={styles.play}>
         <ImageBackground
-          source={img_principal_0}
+          source={btn_jogar}
           style={styles.backgroundGame}
         >
           <Text style={styles.textBtn}>Jogar</Text>
@@ -22,7 +24,7 @@ const Game = () => (
       
       <View style={styles.ranking}>
         <ImageBackground
-          source={img_principal_1}
+          source={btn_ranking}
           style={styles.backgroundGame}
         >
           <Text style={styles.textBtn}>Ranking</Text>
@@ -42,11 +44,11 @@ const styles = StyleSheet.create({
   },
 
   play: {
-    height: '40%'
+    height: '40%',
   },
-  
+
   ranking: {
-    height: '60%'
+    height: '60%',
   },
 
   backgroundGame: {
@@ -54,7 +56,8 @@ const styles = StyleSheet.create({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    resizeMode: 'contain',
   },
 
   textBtn: {
@@ -62,15 +65,15 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     backgroundColor: '#fff',
     paddingHorizontal: 20,
-    paddingVertical: 15
+    paddingVertical: 15,
   },
 
   btnBack: {
     position: 'absolute',
     backgroundColor: '#44635a',
     height: 40,
-    bottom: 0
-  }
+    bottom: 0,
+  },
 });
 
 export default Game;
